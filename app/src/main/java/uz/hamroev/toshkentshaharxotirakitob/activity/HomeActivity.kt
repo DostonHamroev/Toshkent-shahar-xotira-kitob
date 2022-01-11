@@ -1,16 +1,16 @@
-package uz.hamroev.toshkentshaharxotirakitob
+package uz.hamroev.toshkentshaharxotirakitob.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import uz.hamroev.toshkentshaharxotirakitob.databinding.ActivityMainBinding
+import uz.hamroev.toshkentshaharxotirakitob.databinding.ActivityHomeBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class HomeActivity : AppCompatActivity() {
+    lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }

@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToshkentShaharXotiraKitob">
         <activity
+            android:screenOrientation="portrait"
+            android:name=".activity.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
