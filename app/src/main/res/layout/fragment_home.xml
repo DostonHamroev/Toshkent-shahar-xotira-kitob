@@ -12,9 +12,10 @@
        android:id="@+id/book_lottie"
        android:layout_width="match_parent"
        android:layout_height="250dp"
-       app:lottie_fileName="book_girl.json"
+       app:lottie_fileName="book.json"
        app:lottie_loop="true"
-       app:lottie_repeatMode="reverse"
+       app:lottie_autoPlay="true"
+       app:lottie_repeatMode="restart"
        app:layout_constraintLeft_toLeftOf="parent"
        app:layout_constraintRight_toRightOf="parent"
        app:layout_constraintTop_toTopOf="parent"
@@ -61,6 +62,8 @@
 
 
    </LinearLayout>
+
+
 
 
 

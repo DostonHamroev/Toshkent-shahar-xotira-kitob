@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 app:bt_active="true"
                 app:bt_colorActive="#000"
-                app:bt_colorInactive="#DDD"
+                app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_home"
                 app:bt_shape="@drawable/back_bottom_bar"
                 app:bt_title="Asosiy" />
@@ -72,7 +72,7 @@
                 android:layout_weight="1"
                 app:bt_active="false"
                 app:bt_colorActive="#000"
-                app:bt_colorInactive="#DDD"
+                app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_category"
                 app:bt_shape="@drawable/back_bottom_bar"
                 app:bt_title="Voqealar" />
@@ -84,7 +84,7 @@
                 android:layout_weight="1"
                 app:bt_active="false"
                 app:bt_colorActive="#000"
-                app:bt_colorInactive="#DDD"
+                app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_search"
                 app:bt_shape="@drawable/back_bottom_bar"
                 app:bt_title="Qidirish" />
@@ -96,7 +96,7 @@
                 android:layout_weight="1"
                 app:bt_active="false"
                 app:bt_colorActive="#000"
-                app:bt_colorInactive="#DDD"
+                app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_feedback"
                 app:bt_shape="@drawable/back_bottom_bar"
                 app:bt_title="Bog'lanish" />
@@ -108,7 +108,7 @@
                 android:layout_weight="1"
                 app:bt_active="false"
                 app:bt_colorActive="#000"
-                app:bt_colorInactive="#DDD"
+                app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_users"
                 app:bt_shape="@drawable/back_bottom_bar"
                 app:bt_title="Mualliflar" />

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue_ribbon">#0066ff</color>
+    <color name="green">#2CFD5A</color>
+    <color name="red">#FA2555</color>
+    <color name="yellow">#EFF61E</color>
+    <color name="blue">#1570F8</color>
 </resources>

@@ -56,4 +56,7 @@ dependencies {
 
     //lottie Animation
     implementation 'com.airbnb.android:lottie:4.2.2'
+
+    //animation
+    implementation 'com.github.gayanvoice:android-animations:1.0.2'
 }
