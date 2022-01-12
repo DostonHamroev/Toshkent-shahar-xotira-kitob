@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(binding.includeAppBar.toolBar)
         val actionBar = supportActionBar
-        actionBar?.title = "Toshkent Shahar - Xotira Kitob"
+        actionBar?.title = "Toshkent - Xotira Kitob"
 
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
@@ -49,6 +49,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerToggle.isDrawerIndicatorEnabled = true
         binding.drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
+        //supportActionBar?.setHomeButtonEnabled(true)
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
+
         binding.navView.setNavigationItemSelectedListener(this)
 
         homeFragment = HomeFragment()
@@ -57,6 +62,56 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .replace(R.id.frame_layout, homeFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
+
+        binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(0)
+        binding.includeAppBar.bottomNavigationViewLinear.setNavigationChangeListener { view, position ->
+            when (position) {
+                0 -> {
+                    homeFragment = HomeFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, homeFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                1 -> {
+                    eventFragment = EventFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, eventFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                2 -> {
+                    searchFragment = SearchFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, searchFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                3 -> {
+                    sendFragment = SendFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, sendFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                4 -> {
+                    usersFragment = UsersFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_layout, usersFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+            }
+        }
 
     }
 
@@ -71,7 +126,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.frame_layout, homeFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
+
+                binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(0)
             }
+
             R.id.event -> {
                 eventFragment = EventFragment()
                 supportFragmentManager
@@ -79,7 +137,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.frame_layout, eventFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
+
+                binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(1)
             }
+
             R.id.search -> {
                 searchFragment = SearchFragment()
                 supportFragmentManager
@@ -87,7 +148,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.frame_layout, searchFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
+
+                binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(2)
             }
+
             R.id.send -> {
                 sendFragment = SendFragment()
                 supportFragmentManager
@@ -95,7 +159,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.frame_layout, sendFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
+
+                binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(3)
             }
+
             R.id.users -> {
                 usersFragment = UsersFragment()
                 supportFragmentManager
@@ -103,6 +170,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.frame_layout, usersFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
+
+                binding.includeAppBar.bottomNavigationViewLinear.setCurrentActiveItem(4)
             }
 
             R.id.evaluation -> {

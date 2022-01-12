@@ -8,23 +8,23 @@
 
         <item android:id="@+id/home"
             android:title="Asosiy"
-            android:icon="@drawable/default_icon"/>
+            android:icon="@drawable/ic_home"/>
 
         <item android:id="@+id/event"
             android:title="Voqealar"
-            android:icon="@drawable/default_icon"/>
+            android:icon="@drawable/ic_category"/>
 
         <item android:id="@+id/search"
             android:title="Qidirish"
-            android:icon="@drawable/default_icon"/>
+            android:icon="@drawable/ic_search"/>
 
         <item android:id="@+id/send"
             android:title="Fikr va Mulohazalar"
-            android:icon="@drawable/default_icon"/>
+            android:icon="@drawable/ic_feedback"/>
 
         <item android:id="@+id/users"
             android:title="Mualliflar"
-            android:icon="@drawable/default_icon"/>
+            android:icon="@drawable/ic_users"/>
 
     </group>
 
@@ -33,11 +33,11 @@
 
             <item android:id="@+id/evaluation"
                 android:title="Baholash"
-                android:icon="@drawable/default_icon"/>
+                android:icon="@drawable/ic_elevation"/>
 
             <item android:id="@+id/share"
                 android:title="Ulashish"
-                android:icon="@drawable/default_icon"/>
+                android:icon="@drawable/ic_share"/>
         </menu>
     </item>
 
@@ -46,7 +46,7 @@
 
             <item android:id="@+id/exit"
                 android:title="Chiqish"
-                android:icon="@drawable/default_icon"/>
+                android:icon="@drawable/ic_exit"/>
         </menu>
     </item>
 
