@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToshkentShaharXotiraKitob">
         <activity
+            android:theme="@style/Theme.ToshkentShaharXotiraKitob.NoActionBar"
             android:screenOrientation="portrait"
             android:name=".activity.HomeActivity"
             android:exported="true" />

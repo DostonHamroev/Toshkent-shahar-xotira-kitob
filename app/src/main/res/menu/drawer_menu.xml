@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/home"
+            android:title="Asosiy"
+            android:icon="@drawable/default_icon"/>
+
+        <item android:id="@+id/event"
+            android:title="Voqealar"
+            android:icon="@drawable/default_icon"/>
+
+        <item android:id="@+id/search"
+            android:title="Qidirish"
+            android:icon="@drawable/default_icon"/>
+
+        <item android:id="@+id/send"
+            android:title="Fikr va Mulohazalar"
+            android:icon="@drawable/default_icon"/>
+
+        <item android:id="@+id/users"
+            android:title="Mualliflar"
+            android:icon="@drawable/default_icon"/>
+
+    </group>
+
+    <item android:title="Dasturni ulashish">
+        <menu>
+
+            <item android:id="@+id/evaluation"
+                android:title="Baholash"
+                android:icon="@drawable/default_icon"/>
+
+            <item android:id="@+id/share"
+                android:title="Ulashish"
+                android:icon="@drawable/default_icon"/>
+        </menu>
+    </item>
+
+    <item android:title="Dasturdan chiqish">
+        <menu>
+
+            <item android:id="@+id/exit"
+                android:title="Chiqish"
+                android:icon="@drawable/default_icon"/>
+        </menu>
+    </item>
+
+</menu>
