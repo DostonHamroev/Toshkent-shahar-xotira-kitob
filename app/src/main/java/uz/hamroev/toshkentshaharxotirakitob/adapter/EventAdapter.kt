@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import render.animations.Attention
+import render.animations.Render
 import uz.hamroev.toshkentshaharxotirakitob.R
 import uz.hamroev.toshkentshaharxotirakitob.databinding.ItemEventBinding
 import uz.hamroev.toshkentshaharxotirakitob.model.Event
@@ -20,6 +22,11 @@ class EventAdapter(
 
         fun onBind(event: Event, position: Int) {
             itemEventBinding.yearNameTv.text = event.year_name
+
+            val anim = Render(context)
+            anim.setDuration(1000)
+            anim.setAnimation(Attention.Bounce(itemEventBinding.root))
+            anim.start()
 
             if (position == 0 || position == 4 || position == 8 || position == 12 || position == 16) {
                 itemEventBinding.dotLinear.setBackgroundResource(R.color.green)
@@ -40,6 +47,7 @@ class EventAdapter(
 
 
             itemEventBinding.root.setOnClickListener {
+
                 onMyEventClickListener.onEventClick(event, position)
             }
         }
