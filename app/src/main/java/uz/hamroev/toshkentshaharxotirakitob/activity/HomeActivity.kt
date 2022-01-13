@@ -1,5 +1,8 @@
 package uz.hamroev.toshkentshaharxotirakitob.activity
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -175,14 +178,39 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.evaluation -> {
-                Toast.makeText(this, "Baholash", Toast.LENGTH_SHORT).show()
+                try {
+                    val uri: Uri = Uri.parse("market://details?id=$packageName")
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    val uri: Uri =
+                        Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                }
+
+                binding.drawerLayout.closeDrawers()
             }
 
             R.id.share -> {
-                Toast.makeText(this, "Ulashish", Toast.LENGTH_SHORT).show()
+                try {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.setType("text/plain")
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Toshkent Shahar - Xotira Kitob")
+                    val shareMessage: String =
+                        "https://play.google.com/store/apps/details?id=" + packageName
+                    intent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                    startActivity(Intent.createChooser(intent, "share by"))
+                } catch (e: Exception) {
+                    Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+                }
+                binding.drawerLayout.closeDrawers()
             }
 
             R.id.exit -> {
+                // apple alert  we create maybe !
                 finish()
             }
 

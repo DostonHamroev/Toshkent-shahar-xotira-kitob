@@ -99,7 +99,7 @@
                 app:bt_colorInactive="#777777"
                 app:bt_icon="@drawable/ic_feedback"
                 app:bt_shape="@drawable/back_bottom_bar"
-                app:bt_title="Bog'lanish" />
+                app:bt_title="Fikr" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/bottom_users"

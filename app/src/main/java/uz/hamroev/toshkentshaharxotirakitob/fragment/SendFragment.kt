@@ -1,11 +1,22 @@
 package uz.hamroev.toshkentshaharxotirakitob.fragment
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import uz.hamroev.toshkentshaharxotirakitob.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.realpacific.clickshrinkeffect.applyClickShrink
+import render.animations.Attention
+import render.animations.Render
+import uz.hamroev.toshkentshaharxotirakitob.databinding.FragmentSendBinding
+import xyz.teamgravity.checkinternet.CheckInternet
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,13 +41,68 @@ class SendFragment : Fragment() {
         }
     }
 
+    lateinit var binding: FragmentSendBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_send, container, false)
+    ): View {
+        binding = FragmentSendBinding.inflate(layoutInflater, container, false)
+
+        binding.sendBtn.setOnClickListener {
+            binding.sendBtn.applyClickShrink()
+            val name = binding.themeNameEt.text.toString().trim()
+            val info = binding.themeInfoEt.text.toString().trim()
+
+            if (name == "" || info == "") {
+                vibratePhone()
+                Toast.makeText(binding.root.context, "Maydonlarni to'ldiring", Toast.LENGTH_SHORT)
+                    .show()
+                val animError = Render(binding.root.context)
+                animError.setAnimation(Attention.Bounce(binding.linearEtBlock))
+                animError.setDuration(1000)
+                animError.start()
+            } else {
+                CheckInternet().check { connected ->
+                    if (connected) {
+                        try {
+                            val myGmail = "dos400dos400@gmail.com"
+                            val intent = Intent(Intent.ACTION_SEND)
+                            intent.setData(Uri.parse("mailto:"))
+                            intent.setType("text/plain")
+                            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("${myGmail}"))
+                            intent.putExtra(Intent.EXTRA_SUBJECT, name)
+                            intent.putExtra(Intent.EXTRA_TEXT, info)
+                            startActivity(
+                                Intent.createChooser(
+                                    intent,
+                                    "Email Pochtani Tanlang"
+                                )
+                            )
+                        } catch (e: Exception) {
+
+                        }
+                    } else {
+                        Toast.makeText(binding.root.context, "Internet yo'q", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+
+                }
+            }
+
+        }
+
+        return binding.root
     }
+
+    fun Fragment.vibratePhone() {
+        val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(200)
+        }
+    }
+
 
     companion object {
         /**

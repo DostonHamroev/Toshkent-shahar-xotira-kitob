@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.realpacific.clickshrinkeffect.applyClickShrink
 import render.animations.Attention
 import render.animations.Render
 import uz.hamroev.toshkentshaharxotirakitob.R
@@ -47,7 +48,7 @@ class EventAdapter(
 
 
             itemEventBinding.root.setOnClickListener {
-
+                itemEventBinding.root.applyClickShrink()
                 onMyEventClickListener.onEventClick(event, position)
             }
         }
