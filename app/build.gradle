@@ -59,4 +59,6 @@ dependencies {
     implementation 'com.github.realpacific:click-shrink-effect:2.0'
     // check Internet
     implementation 'com.github.raheemadamboev:check-internet-android:1.0.1'
+    // circle image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

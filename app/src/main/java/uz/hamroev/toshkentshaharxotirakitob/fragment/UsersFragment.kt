@@ -1,11 +1,14 @@
 package uz.hamroev.toshkentshaharxotirakitob.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import uz.hamroev.toshkentshaharxotirakitob.R
+import uz.hamroev.toshkentshaharxotirakitob.adapter.UserAdapter
+import uz.hamroev.toshkentshaharxotirakitob.databinding.FragmentUsersBinding
+import uz.hamroev.toshkentshaharxotirakitob.model.MyUser
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,12 +33,29 @@ class UsersFragment : Fragment() {
         }
     }
 
+
+    lateinit var binding: FragmentUsersBinding
+    lateinit var list: ArrayList<MyUser>
+    lateinit var userAdapter: UserAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_users, container, false)
+    ): View {
+        binding = FragmentUsersBinding.inflate(layoutInflater, container, false)
+
+        loadData()
+        userAdapter = UserAdapter(binding.root.context, list)
+        binding.rvUsers.adapter = userAdapter
+
+        return binding.root
+    }
+
+    private fun loadData() {
+        list = ArrayList()
+        list.add(MyUser("","",R.drawable.ic_launcher_background))
+        list.add(MyUser("","",R.drawable.ic_launcher_background))
+        list.add(MyUser("","",R.drawable.ic_launcher_background))
+        list.add(MyUser("Doston\nHamroyev\nDavron o'g'li","Dasturchi",R.drawable.ic_launcher_background))
     }
 
     companion object {
