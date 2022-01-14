@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import uz.hamroev.toshkentshaharxotirakitob.adapter.PersonAdapter
@@ -43,20 +44,46 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
 
         loadData()
-        personAdapter = PersonAdapter(binding.root.context, list, object : PersonAdapter.OnMyPersonClickListener{
-            override fun onPersionClick(person: Person, position: Int) {
-                Toast.makeText(binding.root.context, "$position", Toast.LENGTH_SHORT).show()
-            }
+        personAdapter = PersonAdapter(
+            binding.root.context,
+            list,
+            object : PersonAdapter.OnMyPersonClickListener {
+                override fun onPersionClick(person: Person, position: Int) {
+                    Toast.makeText(binding.root.context, "$position", Toast.LENGTH_SHORT).show()
+                }
 
-            override fun onShare(person: Person, position: Int) {
-                Toast.makeText(binding.root.context, "Share", Toast.LENGTH_SHORT).show()
+                override fun onShare(person: Person, position: Int) {
+                    Toast.makeText(binding.root.context, "Share", Toast.LENGTH_SHORT).show()
 
-            }
-        })
+                }
+            })
         binding.rvSearch.adapter = personAdapter
 
         //searchItems()
+        searchPerson()
         return binding.root
+    }
+
+    private fun searchPerson() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                if (p0!!.isEmpty()) {
+
+                } else
+                    filterPerson(p0.toString())
+                return true
+
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if (p0!!.isEmpty()) {
+
+                } else
+                    filterPerson(p0.toString())
+                return true
+
+            }
+        })
     }
 
     private fun loadData() {
@@ -99,26 +126,9 @@ class SearchFragment : Fragment() {
         list.add(Person("Maftuna"))
     }
 
-    private fun searchItems() {
-//
-//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(p0: String?): Boolean {
-//                if (p0!!.isEmpty()) {
-//                  //  binding.rvHome.adapter = homeAdapter
-//                } else
-//                    filter(p0.toString())
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(p0: String?): Boolean {
-//                if (p0!!.isEmpty()) {
-//                 //   binding.rvHome.adapter = homeAdapter
-//                } else
-//                    filter(p0.toString())
-//                return true
-//            }
-//
-//        })
+    private fun filterPerson(name: String) {
+
+
     }
 
     private fun filter(string: String) {
