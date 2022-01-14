@@ -61,4 +61,8 @@ dependencies {
     implementation 'com.github.raheemadamboev:check-internet-android:1.0.1'
     // circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // multi search view
+    implementation 'com.github.iammert:MultiSearchView:0.3'
+    // Material search view 2
+    implementation 'com.github.leoncydsilva:MaterialSearchView:1.0'
 }
