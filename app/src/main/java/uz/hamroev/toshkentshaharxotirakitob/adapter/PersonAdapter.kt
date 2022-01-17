@@ -6,29 +6,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import uz.hamroev.toshkentshaharxotirakitob.databinding.ItemPersonBinding
 import uz.hamroev.toshkentshaharxotirakitob.model.Person
+import uz.hamroev.toshkentshaharxotirakitob.room.XotiraEntity
 
 class PersonAdapter(
     var context: Context,
-    var list: ArrayList<Person>,
-    var onMyPersonClickListener: OnMyPersonClickListener
+    var list: List<XotiraEntity>,
+    var onMyPersonClickListener: OnMyPersonClickListener?=null
 ) :
     RecyclerView.Adapter<PersonAdapter.VhPerson>() {
 
     inner class VhPerson(var itemPersonBinding: ItemPersonBinding) :
         RecyclerView.ViewHolder(itemPersonBinding.root) {
 
-        fun onBind(person: Person, position: Int) {
+        fun onBind(xotiraEntity: XotiraEntity, position: Int) {
 
-            itemPersonBinding.userInfo.text = person.person
+            itemPersonBinding.userInfo.text = xotiraEntity.person_name
 
-            itemPersonBinding.shareBtn.setOnClickListener {
-                onMyPersonClickListener.onShare(person, position)
-            }
-
-            itemPersonBinding.root.setOnClickListener {
-                onMyPersonClickListener.onPersionClick(person, position)
-
-            }
+//            itemPersonBinding.shareBtn.setOnClickListener {
+//                onMyPersonClickListener?.onShare(xotiraEntity, position)
+//            }
+//
+//            itemPersonBinding.root.setOnClickListener {
+//                onMyPersonClickListener?.onPersionClick(xotiraEntity, position)
+//
+//            }
         }
 
 
@@ -54,8 +55,8 @@ class PersonAdapter(
 
     interface OnMyPersonClickListener {
 
-        fun onPersionClick(person: Person, position: Int)
+        fun onPersionClick(xotiraEntity: XotiraEntity, position: Int)
 
-        fun onShare(person: Person, position: Int)
+        fun onShare(xotiraEntity: XotiraEntity, position: Int)
     }
 }

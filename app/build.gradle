@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -65,4 +66,14 @@ dependencies {
     implementation 'com.github.iammert:MultiSearchView:0.3'
     // Material search view 2
     implementation 'com.github.leoncydsilva:MaterialSearchView:1.0'
+
+    //viewmodelScope
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
+    // room database
+    def roomVersion = "2.4.1"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$roomVersion"
+
 }

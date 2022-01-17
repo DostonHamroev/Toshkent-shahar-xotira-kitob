@@ -1,15 +1,26 @@
 package uz.hamroev.toshkentshaharxotirakitob.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import uz.hamroev.toshkentshaharxotirakitob.adapter.PersonAdapter
 import uz.hamroev.toshkentshaharxotirakitob.databinding.FragmentSearchBinding
 import uz.hamroev.toshkentshaharxotirakitob.model.Person
+import uz.hamroev.toshkentshaharxotirakitob.room.XotiraDao
+import uz.hamroev.toshkentshaharxotirakitob.room.XotiraDatabase
+import uz.hamroev.toshkentshaharxotirakitob.room.XotiraEntity
+import uz.hamroev.toshkentshaharxotirakitob.utils.Status
+import uz.hamroev.toshkentshaharxotirakitob.viewmodel.MyViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,30 +45,63 @@ class SearchFragment : Fragment() {
         }
     }
 
+    lateinit var vm : MyViewModel
     lateinit var binding: FragmentSearchBinding
     lateinit var list: ArrayList<Person>
-    lateinit var personAdapter: PersonAdapter
+    var personAdapter: PersonAdapter?=null
+
+    lateinit var xotiraDao: XotiraDao
+    private  val TAG = "SearchFragment"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
 
-        loadData()
-        personAdapter = PersonAdapter(
-            binding.root.context,
-            list,
-            object : PersonAdapter.OnMyPersonClickListener {
-                override fun onPersionClick(person: Person, position: Int) {
-                    Toast.makeText(binding.root.context, "$position", Toast.LENGTH_SHORT).show()
+      //  loadData()
+        xotiraDao = XotiraDatabase.GET.getXotiraDatabase().getXotiraDao()
+        vm = ViewModelProvider(this).get(MyViewModel::class.java)
+        vm.getList().observe(viewLifecycleOwner, {
+            when (it.status) {
+                Status.ERROR -> Toast.makeText(binding.root.context, it.message, Toast.LENGTH_SHORT)
+                    .show()
+                Status.LOADING->{
+                    Toast.makeText(
+                        binding.root.context,
+                        "Yuklayapman. Qisib tur",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-
-                override fun onShare(person: Person, position: Int) {
-                    Toast.makeText(binding.root.context, "Share", Toast.LENGTH_SHORT).show()
-
+                Status.SUCCESS->{
+                    personAdapter =
+                        it.data?.let { it1 -> PersonAdapter(binding.root.context, it1, null) }
+                    binding.rvSearch.adapter = personAdapter
                 }
-            })
-        binding.rvSearch.adapter = personAdapter
+            }
+
+        })
+//        allPerson.forEach{
+//            Log.d(TAG, "${it.id}   ${it.person_name}   ${it.person_info}")
+//
+//        }
+
+//        val personByYearId =
+//            XotiraDatabase.GET.getXotiraDatabase().getXotiraDao().getPersonByYearId(12)
+//        
+//        personByYearId.forEach {
+//            Log.d(TAG, "onCreateView: ${it.id} ${it.person_name} - ${it.person_info}")
+//        
+//        }
+//
+//        val search = XotiraDatabase.GET.getXotiraDatabase().getXotiraDao().search("Ahmadjon")
+//        search.forEach {
+//            Log.d(TAG, "onCreateView: ${it.id} ${it.person_name} ${it.person_info} ${it.year_id}")
+//
+//        }
+
+
+
 
         //searchItems()
         searchPerson()
@@ -65,23 +109,22 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchPerson() {
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                if (p0!!.isEmpty()) {
+        binding.searchView.addTextChangedListener(object : TextWatcher {
 
-                } else
-                    filterPerson(p0.toString())
-                return true
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                if (p0!!.isEmpty()) {
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-                } else
-                    filterPerson(p0.toString())
-                return true
-
+            }
+            val handler = Handler(Looper.getMainLooper() /*UI thread*/);
+            val workRunnable = Runnable {
+                Toast.makeText(binding.root.context, "Ishladi", Toast.LENGTH_SHORT).show()
+            }
+            override fun afterTextChanged(p0: Editable?) {
+                    handler.removeCallbacks(workRunnable);
+                    handler.postDelayed(workRunnable, 2000 /*delay*/);
             }
         })
     }
