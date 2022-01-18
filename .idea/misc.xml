@@ -12,9 +12,11 @@
         <entry key="app/src/main/res/drawable/gradient_card3.xml" value="0.156640625" />
         <entry key="app/src/main/res/drawable/gradient_card4.xml" value="0.156640625" />
         <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.156640625" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.156640625" />
         <entry key="app/src/main/res/drawable/ic_xotira_kitob.xml" value="0.156640625" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1423611111111111" />
+        <entry key="app/src/main/res/layout/activity_persons.xml" value="0.13" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/fragment_event.xml" value="0.15" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12" />
@@ -24,6 +26,7 @@
         <entry key="app/src/main/res/layout/header_main.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/item_event.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_event_home.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/item_inson.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_person.xml" value="0.14453125" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.14453125" />
         <entry key="app/src/main/res/layout/item_users.xml" value="0.14453125" />

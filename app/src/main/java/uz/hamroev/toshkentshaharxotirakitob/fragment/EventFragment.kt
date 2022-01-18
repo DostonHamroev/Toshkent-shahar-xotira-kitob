@@ -1,12 +1,14 @@
 package uz.hamroev.toshkentshaharxotirakitob.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import uz.hamroev.toshkentshaharxotirakitob.activity.PersonsActivity
 import uz.hamroev.toshkentshaharxotirakitob.adapter.EventAdapter
+import uz.hamroev.toshkentshaharxotirakitob.cache.Cache
 import uz.hamroev.toshkentshaharxotirakitob.databinding.FragmentEventBinding
 import uz.hamroev.toshkentshaharxotirakitob.model.Event
 
@@ -42,12 +44,19 @@ class EventFragment : Fragment() {
     ): View {
         binding = FragmentEventBinding.inflate(layoutInflater, container, false)
 
+        Cache.init(binding.root.context)
+
         loadData()
-        eventAdapter = EventAdapter(binding.root.context, list, object: EventAdapter.OnMyEventClickListener{
-            override fun onEventClick(event: Event, position: Int) {
-                Toast.makeText(binding.root.context, "$position", Toast.LENGTH_SHORT).show()
-            }
-        })
+        eventAdapter =
+            EventAdapter(binding.root.context, list, object : EventAdapter.OnMyEventClickListener {
+                override fun onEventClick(event: Event, position: Int) {
+                    var year_id = (position+1).toString()
+                    Cache.yearId = "${year_id.toString()}"
+                    val intent = Intent(binding.root.context, PersonsActivity::class.java)
+                    startActivity(intent)
+
+                }
+            })
         binding.rvAllEvent.adapter = eventAdapter
 
 
@@ -58,20 +67,32 @@ class EventFragment : Fragment() {
         list = ArrayList()
         list.add(Event("Kirish"))
         list.add(Event("QISQARTMA SO‘ZLAR"))
-        list.add(Event("XALQ QO‘ZG‘OLONLARIDA ISHTIROKI UCHUN JAZOLANGANLAR\n" +
-                "(1865-1916 yy.)\n" +
-                "\n" +
-                "TOSHKENT ISTILOSIGA QARSHILIK UCHUN SURGUN QILINGANLAR"))
+        list.add(
+            Event(
+                "XALQ QO‘ZG‘OLONLARIDA ISHTIROKI UCHUN JAZOLANGANLAR\n" +
+                        "(1865-1916 yy.)\n" +
+                        "\n" +
+                        "TOSHKENT ISTILOSIGA QARSHILIK UCHUN SURGUN QILINGANLAR"
+            )
+        )
         list.add(Event("1892 YIL QO‘ZG‘OLONI ISHTIROKCHILARI"))
         list.add(Event("1916 YIL QO‘ZG‘OLONI ISHTIROKCHILARI\n"))
         list.add(Event("MARDIKORLIKKA OLINGANLAR\n"))
         list.add(Event("MUSTAMLAKACHILIKKA QARSHI  KAYFIYAT VA TASHVIQOT  UCHUN JAZOLANGANLAR"))
-        list.add(Event("SOVET HOKIMIYATIGA QARSHI KURASH QURBONLARI \n" +
-                "(1917-1924 yy.)"))
-        list.add(Event("SIYOSIY AYBLOVLAR VA “QULOQ”LASHTIRISH QURBONLARI \n" +
-                "(1925-1936 yy.)\n" +
-                "\n" +
-                "TURLI SIYOSIY AYBLOVLAR BILAN JAZOLANGANLAR"))
+        list.add(
+            Event(
+                "SOVET HOKIMIYATIGA QARSHI KURASH QURBONLARI \n" +
+                        "(1917-1924 yy.)"
+            )
+        )
+        list.add(
+            Event(
+                "SIYOSIY AYBLOVLAR VA “QULOQ”LASHTIRISH QURBONLARI \n" +
+                        "(1925-1936 yy.)\n" +
+                        "\n" +
+                        "TURLI SIYOSIY AYBLOVLAR BILAN JAZOLANGANLAR"
+            )
+        )
         list.add(Event("“QULOQ”  QILINGANLAR"))
         list.add(Event("“KATTA QIRG‘IN” QURBONLARI (1937-1938 y.y.)"))
         list.add(Event("1940-1950 YILLAR QATAG‘ONLARI"))

@@ -1,13 +1,16 @@
 package uz.hamroev.toshkentshaharxotirakitob.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import uz.hamroev.toshkentshaharxotirakitob.activity.PersonsActivity
 import uz.hamroev.toshkentshaharxotirakitob.adapter.EventAdapter
 import uz.hamroev.toshkentshaharxotirakitob.adapter.EventHomeAdapter
+import uz.hamroev.toshkentshaharxotirakitob.cache.Cache
 import uz.hamroev.toshkentshaharxotirakitob.databinding.FragmentHomeBinding
 import uz.hamroev.toshkentshaharxotirakitob.interfaces.PassDataInterface
 import uz.hamroev.toshkentshaharxotirakitob.model.Event
@@ -49,7 +52,10 @@ class HomeFragment : Fragment() {
         loadData()
         eventHomeAdapter = EventHomeAdapter(binding.root.context, list, object: EventHomeAdapter.OnMyEventClickListener{
             override fun onEventClick(event: Event, position: Int) {
-                //Toast.makeText(binding.root.context, "$position", Toast.LENGTH_SHORT).show()
+                var year_id = (position+1).toString()
+                Cache.yearId = "${year_id.toString()}"
+                val intent = Intent(binding.root.context, PersonsActivity::class.java)
+                startActivity(intent)
             }
         })
         binding.rvAllEvent.adapter = eventHomeAdapter

@@ -13,6 +13,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import uz.hamroev.toshkentshaharxotirakitob.R
+import uz.hamroev.toshkentshaharxotirakitob.cache.Cache
 import uz.hamroev.toshkentshaharxotirakitob.databinding.ActivityHomeBinding
 import uz.hamroev.toshkentshaharxotirakitob.fragment.*
 
@@ -34,6 +35,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Cache.init(this)
 
         setSupportActionBar(binding.includeAppBar.toolBar)
         val actionBar = supportActionBar

@@ -69,7 +69,7 @@ class SearchFragment : Fragment() {
                 Status.LOADING->{
                     Toast.makeText(
                         binding.root.context,
-                        "Yuklayapman. Qisib tur",
+                        "Yuklanyapti",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -129,45 +129,6 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private fun loadData() {
-        list = ArrayList()
-        list.add(Person("Sardor"))
-        list.add(Person("Sanjar"))
-        list.add(Person("Sarvar"))
-        list.add(Person("Sevinch"))
-        list.add(Person("Zarina"))
-        list.add(Person("Nigora"))
-        list.add(Person("Ozod"))
-        list.add(Person("Ozoda"))
-        list.add(Person("Maftuna"))
-        list.add(Person("Sardor"))
-        list.add(Person("Sanjar"))
-        list.add(Person("Sarvar"))
-        list.add(Person("Sevinch"))
-        list.add(Person("Zarina"))
-        list.add(Person("Nigora"))
-        list.add(Person("Ozod"))
-        list.add(Person("Ozoda"))
-        list.add(Person("Maftuna"))
-        list.add(Person("Sardor"))
-        list.add(Person("Sanjar"))
-        list.add(Person("Sarvar"))
-        list.add(Person("Sevinch"))
-        list.add(Person("Zarina"))
-        list.add(Person("Nigora"))
-        list.add(Person("Ozod"))
-        list.add(Person("Ozoda"))
-        list.add(Person("Maftuna"))
-        list.add(Person("Sardor"))
-        list.add(Person("Sanjar"))
-        list.add(Person("Sarvar"))
-        list.add(Person("Sevinch"))
-        list.add(Person("Zarina"))
-        list.add(Person("Nigora"))
-        list.add(Person("Ozod"))
-        list.add(Person("Ozoda"))
-        list.add(Person("Maftuna"))
-    }
 
     private fun filterPerson(name: String) {
 
