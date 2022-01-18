@@ -52,10 +52,9 @@ class UsersFragment : Fragment() {
 
     private fun loadData() {
         list = ArrayList()
-        list.add(MyUser("","",R.drawable.ic_launcher_background))
-        list.add(MyUser("","",R.drawable.ic_launcher_background))
-        list.add(MyUser("","",R.drawable.ic_launcher_background))
-        list.add(MyUser("Doston\nHamroyev\nDavron o'g'li","Dasturchi",R.drawable.ic_launcher_background))
+        list.add(MyUser("Zamira\nRaimovna\nIshonxodjayeva","Professor O'zMU",R.drawable.ic_zamira))
+        list.add(MyUser("Saida\nBeknazarova\nSafibullayevna","Professor\nt.f.d.\nMuhammad al-Xorazmiy nomidagi Toshkent Аxborot texnologiyalari universiteti Аudiovizual texnologiyalar kafedrasi professori",R.drawable.ic_saida))
+        list.add(MyUser("Doston\nHamroyev\nDavron o'g'li","Android Dasturchi\n" + "\n" + "Muhammad al-Xorazmiy nomidagi Toshkent Аxborot texnologiyalari universiteti Televizion Texnologiyalari fakulteti talabasi",R.drawable.ic_doston))
     }
 
     companion object {
