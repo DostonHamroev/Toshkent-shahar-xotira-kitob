@@ -2,10 +2,11 @@ package uz.hamroev.toshkentshaharxotirakitob.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import uz.hamroev.toshkentshaharxotirakitob.adapter.InsonAdapter
 import uz.hamroev.toshkentshaharxotirakitob.cache.Cache
+import uz.hamroev.toshkentshaharxotirakitob.database.PersonDatabase
 import uz.hamroev.toshkentshaharxotirakitob.databinding.ActivityPersonsBinding
 import uz.hamroev.toshkentshaharxotirakitob.room.XotiraDatabase
 import uz.hamroev.toshkentshaharxotirakitob.room.XotiraEntity
@@ -15,6 +16,7 @@ class PersonsActivity : AppCompatActivity() {
     lateinit var insonAdapter: InsonAdapter
     private val TAG = "TTTT"
     var yearName = ""
+    lateinit var personSearchDatabase: PersonDatabase
     var message: String = ""
     var shareMessage: String =
         "https://play.google.com/store/apps/details?id="
@@ -29,8 +31,10 @@ class PersonsActivity : AppCompatActivity() {
         shareMessage = "https://play.google.com/store/apps/details?id=$packageName"
 
         supportActionBar?.hide()
+        //  personSearchDatabase = PersonDatabase.getInstance(this)
 
         loadPerson()
+
         binding.backButton.setOnClickListener {
             finish()
         }
@@ -120,7 +124,6 @@ class PersonsActivity : AppCompatActivity() {
     }
 
     fun loadUI(yearId: Int) {
-        Toast.makeText(this, "$yearId", Toast.LENGTH_SHORT).show()
         val list =
             XotiraDatabase.GET.getXotiraDatabase().getXotiraDao().getPersonByYearId(yearId)
         insonAdapter = InsonAdapter(this, list, object : InsonAdapter.OnMyInsonClickListener {
@@ -130,7 +133,7 @@ class PersonsActivity : AppCompatActivity() {
                         "* * * * * * *\n\n" +
                         "$yearName\n\n" +
                         "" +
-                        "${list[position].person_name} -\n" +
+                        "${list[position].person_name} -\n\n" +
                         "${list[position].person_info}\n" +
                         "\n* * * * * * *\n" +
                         "$shareMessage"
@@ -140,6 +143,16 @@ class PersonsActivity : AppCompatActivity() {
                 intent.putExtra(Intent.EXTRA_TEXT, message)
                 val chooser = Intent.createChooser(intent, "Share using...")
                 startActivity(chooser)
+            }
+
+            override fun onItemClick(xotiraEntity: XotiraEntity, position: Int, view: View) {
+//                view.setBackgroundResource(R.drawable.gradient_card2)
+//                val personName = list[position].person_name
+//                val personInfo = list[position].person_info
+//                val personEntity = PersonEntity()
+//                personEntity.person_name = personName
+//                personEntity.person_info = personInfo
+//                personSearchDatabase.personDao().addPerson(personEntity)
             }
         })
         binding.rvInson.adapter = insonAdapter

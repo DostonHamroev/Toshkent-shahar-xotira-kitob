@@ -28,6 +28,7 @@
         <entry key="app/src/main/res/layout/item_event_home.xml" value="0.14" />
         <entry key="app/src/main/res/layout/item_inson.xml" value="0.16" />
         <entry key="app/src/main/res/layout/item_person.xml" value="0.14453125" />
+        <entry key="app/src/main/res/layout/item_person_search.xml" value="0.13125" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.14453125" />
         <entry key="app/src/main/res/layout/item_users.xml" value="0.14453125" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.19270833333333334" />

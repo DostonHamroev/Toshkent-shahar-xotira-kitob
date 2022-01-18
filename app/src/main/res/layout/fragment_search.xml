@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3FBFB"
     tools:context=".fragment.SearchFragment">
 
-    <EditText
+    <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
         android:background="@drawable/back_search"
-        android:baselineAligned="false"
-        android:gravity="start"
-        android:padding="2dp"
-        android:queryHint="Ism"
+        android:iconifiedByDefault="false"
+        android:paddingStart="2dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Search" />
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,14 +32,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/notSearchYet_Linear"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:padding="20dp"
+                    app:lottie_fileName="search.json"
+                    app:lottie_loop="true"
+                    app:lottie_repeatMode="restart"
+                    app:lottie_autoPlay="true"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hech nima qidirib ko'rilmagan !"
+                    android:textSize="16sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_person"/>
+                tools:listitem="@layout/item_inson" />
 
 
         </LinearLayout>

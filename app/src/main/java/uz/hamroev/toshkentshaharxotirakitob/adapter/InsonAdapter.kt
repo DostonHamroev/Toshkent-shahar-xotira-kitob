@@ -2,11 +2,13 @@ package uz.hamroev.toshkentshaharxotirakitob.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.realpacific.clickshrinkeffect.applyClickShrink
 import render.animations.Attention
 import render.animations.Render
+import uz.hamroev.toshkentshaharxotirakitob.R
 import uz.hamroev.toshkentshaharxotirakitob.databinding.ItemInsonBinding
 import uz.hamroev.toshkentshaharxotirakitob.room.XotiraEntity
 
@@ -39,6 +41,12 @@ class InsonAdapter(
                 onMyInsonClickListener.onShareClick(xotiraEntity, position)
             }
 
+            itemInsonBinding.root.setOnClickListener {
+                onMyInsonClickListener.onItemClick(xotiraEntity, position,itemInsonBinding.mainLinear)
+                //itemInsonBinding.mainLinear.setBackgroundResource(R.drawable.gradient_card1)
+
+            }
+
             itemInsonBinding.root.applyClickShrink()
         }
     }
@@ -57,5 +65,7 @@ class InsonAdapter(
 
     interface OnMyInsonClickListener {
         fun onShareClick(xotiraEntity: XotiraEntity, position: Int)
+
+        fun onItemClick(xotiraEntity: XotiraEntity, position: Int, view: View)
     }
 }

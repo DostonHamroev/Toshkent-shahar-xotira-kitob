@@ -4,6 +4,8 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -27,6 +29,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var searchFragment: SearchFragment
     lateinit var sendFragment: SendFragment
     lateinit var usersFragment: UsersFragment
+
+    var isBack = false
+    lateinit var handler: Handler
+    var doubleToast = "Chiqish uchun 2 marta bosing"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -227,8 +233,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
+        } else
+
+        if(isBack) {
             super.onBackPressed()
+            return
         }
+
+        this.isBack = true
+        handler = Handler(Looper.getMainLooper())
+        Toast.makeText(this, "$doubleToast", Toast.LENGTH_SHORT).show()
+        handler.postDelayed({
+            isBack = false
+        }, 1000)
     }
 }

@@ -75,5 +75,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:$roomVersion"
+    //EmphasisTextView color with | textni rang bilan belgilab olish
+    implementation 'com.athkalia.emphasis:emphasis:0.4'
 
 }
