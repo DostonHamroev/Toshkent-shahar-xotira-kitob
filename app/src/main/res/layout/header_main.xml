@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="350dp"
         android:background="@drawable/shaxidlar">
 
         <LinearLayout
@@ -37,6 +37,15 @@
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_medium"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A-OT-2021-542 “Qatag‘on qurbonlarining merosini yanada chuqur o‘rganish, ularning xotirasini abadiylashtirish va ijtimoiy-siyosiy, ma'naviy-ma'rifiy g‘oyalarining ta'lim va tarbiyadagi ahamiyati yoritilgan elektron platforma va mul'timediyali kompleksini yaratish” loyihasi doirasida bajarilgan"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"/>
 
 
         </LinearLayout>
