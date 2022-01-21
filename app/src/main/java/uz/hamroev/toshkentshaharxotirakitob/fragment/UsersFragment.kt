@@ -53,13 +53,10 @@ class UsersFragment : Fragment() {
     private fun loadData() {
         list = ArrayList()
         list.add(MyUser("Zamira\nRaimovna\nIshonxodjayeva","Professor O'zMU",R.drawable.ic_zamira))
-        list.add(
-            MyUser("Tog'ayev\nJasur\nErkinov","Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universiteti\n" +
-                    "Tarix fakul'teti O‘zbekiston tarixi kafedrasi katta o‘qituvchisi,  tarix fanlari bo‘yicha falsafa doktori (PhD)",R.drawable.ic_jasur)
-        )
-        list.add(MyUser("Muhammadiyev\nRaxmon\nRashidovich","Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universiteti Tarix fakul'teti “O‘zbekiston tarixi” kafedrasi o‘qituvchisi",R.drawable.ic_rahmon))
         list.add(MyUser("Irzayev\nBahrom\nShaymamatovich","O‘zR VM huzuridagi Qatag‘on qurbonlari xotirasi davlat muzeyi katta ilmiy xodimi, tarix fanlari bo‘yicha falsafa doktori (PhD)",R.drawable.ic_bahrom))
         list.add(MyUser("Saida\nBeknazarova\nSafibullayevna","Professor\nt.f.d.\nMuhammad al-Xorazmiy nomidagi Toshkent Аxborot texnologiyalari universiteti Аudiovizual texnologiyalar kafedrasi professori",R.drawable.ic_saida))
+        list.add(MyUser("Tog'ayev\nJasur\nErkinov","Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universiteti\n" + "Tarix fakul'teti O‘zbekiston tarixi kafedrasi katta o‘qituvchisi,  tarix fanlari bo‘yicha falsafa doktori (PhD)",R.drawable.ic_jasur))
+        list.add(MyUser("Muhammadiyev\nRaxmon\nRashidovich","Mirzo Ulug‘bek nomidagi O‘zbekiston Milliy universiteti Tarix fakul'teti “O‘zbekiston tarixi” kafedrasi o‘qituvchisi",R.drawable.ic_rahmon))
         list.add(MyUser("Doston\nHamroyev\nDavron o'g'li","Android Dasturchi\n" + "\n" + "Muhammad al-Xorazmiy nomidagi Toshkent Аxborot texnologiyalari universiteti Televizion Texnologiyalari fakulteti talabasi",R.drawable.ic_doston))
     }
 

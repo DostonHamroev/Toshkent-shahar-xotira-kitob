@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:text="Doston\nHamroyev\nDavron o'g'li"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/poppins_medium"
                     android:gravity="center_vertical"
                     android:padding="5dp"/>
@@ -71,7 +71,7 @@
                 android:padding="12dp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:textSize="12sp"/>
 
 
         </LinearLayout>

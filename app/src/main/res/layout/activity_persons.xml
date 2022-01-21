@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3FBFB"
+    android:background="@drawable/panjara"
     tools:context=".activity.PersonsActivity">
 
 
@@ -46,6 +46,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:background="@drawable/gradient_card1"
             android:layout_height="match_parent">
 
             <TextView

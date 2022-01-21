@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/panjara"
     tools:context=".fragment.SendFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -41,6 +42,7 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/back_edit"
                     android:gravity="start"
+                    android:textColorHint="#D5D1D1"
                     android:hint="Xabar nomi"
                     android:padding="12dp" />
 
@@ -48,6 +50,7 @@
                     android:id="@+id/themeInfoEt"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:textColorHint="#D5D1D1"
                     android:layout_margin="12dp"
                     android:background="@drawable/back_edit"
                     android:gravity="center_horizontal|start"
