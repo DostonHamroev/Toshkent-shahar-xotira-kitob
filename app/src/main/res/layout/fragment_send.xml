@@ -42,6 +42,7 @@
                     android:layout_margin="12dp"
                     android:background="@drawable/back_edit"
                     android:gravity="start"
+                    android:textColor="@color/white"
                     android:textColorHint="#D5D1D1"
                     android:hint="Xabar nomi"
                     android:padding="12dp" />
@@ -52,6 +53,7 @@
                     android:layout_height="200dp"
                     android:textColorHint="#D5D1D1"
                     android:layout_margin="12dp"
+                    android:textColor="@color/white"
                     android:background="@drawable/back_edit"
                     android:gravity="center_horizontal|start"
                     android:hint="Xabar"
